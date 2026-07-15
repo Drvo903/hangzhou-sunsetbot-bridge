@@ -1,0 +1,55 @@
+name: Collect SunsetBot data
+
+on:
+  workflow_dispatch:
+  schedule:
+    # GitHub cron uses UTC. Beijing: 08:45, 10:20, 13:50, 16:20, 20:45, 22:20.
+    - cron: '45 0 * * *'
+    - cron: '20 2 * * *'
+    - cron: '50 5 * * *'
+    - cron: '20 8 * * *'
+    - cron: '45 12 * * *'
+    - cron: '20 14 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sunsetbot-collector
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Collect with retry
+        run: |
+          for attempt in 1 2 3; do
+            npm run collect && exit 0
+            echo "Attempt $attempt failed"
+            sleep $((attempt * 10))
+          done
+          exit 1
+      - name: Upload diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sunsetbot-debug
+          path: debug/
+          retention-days: 7
+      - name: Commit refreshed JSON
+        run: |
+          if git diff --quiet -- public/hangzhou.json; then exit 0; fi
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add public/hangzhou.json
+          git commit -m "data: refresh Hangzhou forecast"
+          git push

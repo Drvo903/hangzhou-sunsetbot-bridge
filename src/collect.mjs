@@ -6,8 +6,8 @@ const OUT = process.env.OUTPUT_FILE || 'public/hangzhou.json';
 const TZ = 'Asia/Shanghai';
 
 const eventDefs = [
-  ['today_sunrise', '今天日出'], ['today_sunset', '今天日落'],
-  ['tomorrow_sunrise', '明天日出'], ['tomorrow_sunset', '明天日落'],
+  ['today_sunrise', 'rise_1'], ['today_sunset', 'set_1'],
+  ['tomorrow_sunrise', 'rise_2'], ['tomorrow_sunset', 'set_2'],
 ];
 
 function level(q) {
@@ -24,53 +24,41 @@ function level(q) {
   return '世纪大烧';
 }
 
-const wait = page => page.waitForTimeout(1300);
-
-async function chooseByText(page, text) {
-  const target = page.getByText(text, { exact: true }).last();
-  await target.waitFor({ state: 'visible', timeout: 15000 });
-  await target.click();
-  await wait(page);
-}
-
 async function chooseHangzhou(page) {
-  const inputs = page.locator('input:visible');
-  const count = await inputs.count();
-  for (let i = 0; i < count; i++) {
-    const input = inputs.nth(i);
-    try {
-      await input.fill('杭州');
-      await page.waitForTimeout(500);
-      const hz = page.getByText(/^(浙江省-)?杭州$/, { exact: false }).last();
-      if (await hz.isVisible().catch(() => false)) {
-        await hz.click();
-        await wait(page);
-        return;
-      }
-      await input.press('Enter');
-      await wait(page);
-      if ((await page.locator('body').innerText()).includes('浙江省-杭州')) return;
-    } catch { /* try the next visible input */ }
-  }
-  throw new Error('未能在页面中选择杭州；请查看 debug 截图和页面 HTML。');
+  await page.locator('#city_input').fill('杭州');
 }
 
-function parseText(text, model) {
-  const event = text.match(/浙江省-杭州\s+(日出|日落)\s+(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})/);
-  const quality = text.match(/鲜艳度\s*([0-9.]+)/);
-  const aod = text.match(/气溶胶\s*([0-9.]+)/);
-  const modelTime = text.match(/(?:凌晨|早晨|上午|中午|下午|傍晚|晚上)?时次\s*(\d{10}z)/i);
-  const actualModel = text.match(/预报模型\s*(GFS|EC)/i)?.[1]?.toUpperCase();
-  if (!event || !quality) throw new Error(`页面结果解析失败 (${model})`);
-  if (actualModel && actualModel !== model) throw new Error(`模型切换失败：期望 ${model}，实际 ${actualModel}`);
-  const q = Number(quality[1]);
+function parseResponse(data, model) {
+  const q = Number.parseFloat(data.tb_quality);
+  const aod = Number.parseFloat(data.tb_aod);
+  if (!Number.isFinite(q)) throw new Error(`响应鲜艳度解析失败 (${model})`);
+  if (data.display_model?.toUpperCase() !== model) {
+    throw new Error(`模型切换失败：期望 ${model}，实际 ${data.display_model}`);
+  }
   return {
     quality: q,
     level: level(q),
-    aod: aod ? Number(aod[1]) : null,
-    event_time: event[2],
-    model_time: modelTime?.[1] ?? null,
+    aod: Number.isFinite(aod) ? aod : null,
+    event_time: data.tb_event_time ?? null,
+    model_time: data.display_times_str ?? null,
   };
+}
+
+async function fetchSelection(page, event, model) {
+  await page.evaluate(({ event, model }) => {
+    document.querySelector('#event_selector').value = event;
+    document.querySelector('#model_selector').value = model;
+  }, { event, model });
+  const responsePromise = page.waitForResponse(response =>
+    response.url().includes('intend=select_city') && response.request().resourceType() === 'xhr',
+    { timeout: 30000 },
+  );
+  await page.locator('#srch_btn').click();
+  const response = await responsePromise;
+  if (!response.ok()) throw new Error(`SunsetBot 查询失败：HTTP ${response.status()}`);
+  const data = await response.json();
+  if (data.status === 'not_found') throw new Error(`SunsetBot 暂无数据：${event}/${model}`);
+  return parseResponse(data, model);
 }
 
 async function main() {
@@ -91,13 +79,10 @@ async function main() {
   try {
     await page.goto(BASE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await chooseHangzhou(page);
-    for (const [key, label] of eventDefs) {
+    for (const [key, event] of eventDefs) {
       output[key] = {};
-      await chooseByText(page, label);
-      for (const [model, labelText] of [['GFS', /数据源:\s*GFS/], ['EC', /数据源:\s*EC/]]) {
-        await page.getByText(labelText).last().click();
-        await wait(page);
-        output[key][model] = parseText(await page.locator('body').innerText(), model);
+      for (const model of ['GFS', 'EC']) {
+        output[key][model] = await fetchSelection(page, event, model);
       }
     }
     output.meta = { captured_json_responses: jsonResponses.length };

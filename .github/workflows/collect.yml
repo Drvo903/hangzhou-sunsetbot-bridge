@@ -2,6 +2,13 @@ name: Collect SunsetBot data
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/collect.yml'
   schedule:
     # GitHub cron uses UTC. Beijing: 08:45, 10:20, 13:50, 16:20, 20:45, 22:20.
     - cron: '45 0 * * *'

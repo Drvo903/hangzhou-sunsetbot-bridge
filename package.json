@@ -1,0 +1,13 @@
+{
+  "name": "hangzhou-sunsetbot-bridge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "collect": "node src/collect.mjs",
+    "check": "node --check src/collect.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.54.1"
+  }
+}

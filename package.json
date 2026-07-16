@@ -8,6 +8,6 @@
     "check": "node --check src/collect.mjs"
   },
   "dependencies": {
-    "playwright": "1.54.1"
+    "playwright": "1.61.1"
   }
 }

@@ -4,7 +4,7 @@
 
 ## JSON 地址
 
-启用 GitHub Pages 后：`https://<你的用户名>.github.io/hangzhou-sunsetbot-bridge/hangzhou.json`
+正式地址：<https://drvo903.github.io/hangzhou-sunsetbot-bridge/hangzhou.json>
 
 ## 首次启用
 

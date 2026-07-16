@@ -75,6 +75,8 @@ async function main() {
     updated_at: new Intl.DateTimeFormat('sv-SE', { timeZone: TZ, dateStyle: 'short', timeStyle: 'medium' }).format(new Date()).replace(' ', 'T') + '+08:00',
     city: '杭州', source: BASE_URL,
   };
+  let successfulSelections = 0;
+  const failures = [];
 
   try {
     await page.goto(BASE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
@@ -82,10 +84,25 @@ async function main() {
     for (const [key, event] of eventDefs) {
       output[key] = {};
       for (const model of ['GFS', 'EC']) {
-        output[key][model] = await fetchSelection(page, event, model);
+        try {
+          output[key][model] = await fetchSelection(page, event, model);
+          successfulSelections += 1;
+        } catch (error) {
+          const reason = error instanceof Error ? error.message : String(error);
+          failures.push({ key, model, reason });
+          output[key][model] = {
+            status: 'unavailable', quality: null, level: null, aod: null,
+            event_time: null, model_time: null,
+          };
+        }
       }
     }
-    output.meta = { captured_json_responses: jsonResponses.length };
+    if (successfulSelections === 0) throw new Error('全部 SunsetBot 查询均失败');
+    output.meta = {
+      successful_selections: successfulSelections,
+      captured_json_responses: jsonResponses.length,
+      failures,
+    };
     await mkdir(OUT.substring(0, OUT.lastIndexOf('/')), { recursive: true });
     await writeFile(`${OUT}.tmp`, JSON.stringify(output, null, 2) + '\n');
     await rename(`${OUT}.tmp`, OUT);

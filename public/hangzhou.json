@@ -1,46 +1,14 @@
 {
-  "updated_at": "2026-07-22T23:55:12+08:00",
+  "updated_at": "2026-07-23T11:58:41+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
     "GFS": {
-      "quality": 0.353,
-      "level": "小烧到中烧",
-      "aod": 0.401,
-      "event_time": "2026-07-22 05:12:50",
-      "model_time": "2026072106z"
-    },
-    "EC": {
-      "quality": 0.271,
-      "level": "小烧到中烧",
-      "aod": 0.402,
-      "event_time": "2026-07-22 05:12:50",
-      "model_time": "2026072012z"
-    }
-  },
-  "today_sunset": {
-    "GFS": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.904,
-      "event_time": "2026-07-22 18:58:04",
-      "model_time": "2026072200z"
-    },
-    "EC": {
-      "quality": 0.006,
-      "level": "微微烧",
-      "aod": 0.707,
-      "event_time": "2026-07-22 18:58:04",
-      "model_time": "2026072112z"
-    }
-  },
-  "tomorrow_sunrise": {
-    "GFS": {
-      "quality": 0.416,
-      "level": "中等烧",
-      "aod": 0.426,
+      "quality": 0.717,
+      "level": "中等烧到大烧",
+      "aod": 0.411,
       "event_time": "2026-07-23 05:13:25",
-      "model_time": "2026072206z"
+      "model_time": "2026072212z"
     },
     "EC": {
       "quality": 0.207,
@@ -50,20 +18,52 @@
       "model_time": "2026072112z"
     }
   },
-  "tomorrow_sunset": {
+  "today_sunset": {
     "GFS": {
-      "quality": 0.013,
-      "level": "微微烧",
-      "aod": 0.433,
+      "quality": 0.111,
+      "level": "小烧",
+      "aod": 0.461,
       "event_time": "2026-07-23 18:57:32",
-      "model_time": "2026072206z"
+      "model_time": "2026072218z"
     },
     "EC": {
-      "quality": 0.154,
-      "level": "小烧",
-      "aod": 0.43,
+      "quality": 0.016,
+      "level": "微微烧",
+      "aod": 0.474,
       "event_time": "2026-07-23 18:57:32",
-      "model_time": "2026072112z"
+      "model_time": "2026072212z"
+    }
+  },
+  "tomorrow_sunrise": {
+    "GFS": {
+      "quality": 0.843,
+      "level": "接近大烧",
+      "aod": 0.324,
+      "event_time": "2026-07-24 05:14:00",
+      "model_time": "2026072218z"
+    },
+    "EC": {
+      "quality": 0.011,
+      "level": "微微烧",
+      "aod": 0.387,
+      "event_time": "2026-07-24 05:14:00",
+      "model_time": "2026072212z"
+    }
+  },
+  "tomorrow_sunset": {
+    "GFS": {
+      "quality": 0.002,
+      "level": "微微烧",
+      "aod": 0.434,
+      "event_time": "2026-07-24 18:56:59",
+      "model_time": "2026072218z"
+    },
+    "EC": {
+      "quality": 0.001,
+      "level": "微微烧",
+      "aod": 0.537,
+      "event_time": "2026-07-24 18:56:59",
+      "model_time": "2026072212z"
     }
   },
   "meta": {

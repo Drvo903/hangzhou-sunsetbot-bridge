@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-24T11:58:12+08:00",
+  "updated_at": "2026-07-24T13:31:53+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
@@ -20,11 +20,11 @@
   },
   "today_sunset": {
     "GFS": {
-      "quality": 0.002,
+      "quality": 0.025,
       "level": "微微烧",
-      "aod": 0.535,
+      "aod": 0.634,
       "event_time": "2026-07-24 18:56:59",
-      "model_time": "2026072318z"
+      "model_time": "2026072400z"
     },
     "EC": {
       "quality": 0.101,

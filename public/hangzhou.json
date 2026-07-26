@@ -1,46 +1,14 @@
 {
-  "updated_at": "2026-07-25T23:33:20+08:00",
+  "updated_at": "2026-07-26T12:18:17+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
     "GFS": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.102,
-      "event_time": "2026-07-25 05:14:36",
-      "model_time": "2026072412z"
-    },
-    "EC": {
-      "quality": 0.002,
-      "level": "微微烧",
-      "aod": 0.102,
-      "event_time": "2026-07-25 05:14:36",
-      "model_time": "2026072400z"
-    }
-  },
-  "today_sunset": {
-    "GFS": {
-      "quality": 0.002,
-      "level": "微微烧",
-      "aod": 0.142,
-      "event_time": "2026-07-25 18:56:25",
-      "model_time": "2026072500z"
-    },
-    "EC": {
-      "quality": 0.003,
-      "level": "微微烧",
-      "aod": 0.138,
-      "event_time": "2026-07-25 18:56:25",
-      "model_time": "2026072412z"
-    }
-  },
-  "tomorrow_sunrise": {
-    "GFS": {
-      "quality": 0.571,
+      "quality": 0.568,
       "level": "中等烧",
-      "aod": 0.117,
+      "aod": 0.134,
       "event_time": "2026-07-26 05:15:12",
-      "model_time": "2026072506z"
+      "model_time": "2026072512z"
     },
     "EC": {
       "quality": 0.052,
@@ -50,20 +18,52 @@
       "model_time": "2026072412z"
     }
   },
-  "tomorrow_sunset": {
+  "today_sunset": {
     "GFS": {
-      "quality": 0.032,
-      "level": "微微烧",
-      "aod": 0.168,
+      "quality": 0.05,
+      "level": "小烧",
+      "aod": 0.203,
       "event_time": "2026-07-26 18:55:50",
-      "model_time": "2026072506z"
+      "model_time": "2026072518z"
     },
     "EC": {
       "quality": 0,
       "level": "不烧",
-      "aod": 0.177,
+      "aod": 0.195,
       "event_time": "2026-07-26 18:55:50",
-      "model_time": "2026072412z"
+      "model_time": "2026072512z"
+    }
+  },
+  "tomorrow_sunrise": {
+    "GFS": {
+      "quality": 0.019,
+      "level": "微微烧",
+      "aod": 0.173,
+      "event_time": "2026-07-27 05:15:48",
+      "model_time": "2026072518z"
+    },
+    "EC": {
+      "quality": 0.376,
+      "level": "小烧到中烧",
+      "aod": 0.144,
+      "event_time": "2026-07-27 05:15:48",
+      "model_time": "2026072512z"
+    }
+  },
+  "tomorrow_sunset": {
+    "GFS": {
+      "quality": 0.001,
+      "level": "微微烧",
+      "aod": 0.143,
+      "event_time": "2026-07-27 18:55:13",
+      "model_time": "2026072518z"
+    },
+    "EC": {
+      "quality": 0,
+      "level": "不烧",
+      "aod": 0.142,
+      "event_time": "2026-07-27 18:55:13",
+      "model_time": "2026072512z"
     }
   },
   "meta": {

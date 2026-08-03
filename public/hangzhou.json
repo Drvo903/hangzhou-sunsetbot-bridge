@@ -1,40 +1,8 @@
 {
-  "updated_at": "2026-08-03T23:31:14+08:00",
+  "updated_at": "2026-08-04T00:43:28+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
-    "GFS": {
-      "quality": 0.816,
-      "level": "接近大烧",
-      "aod": 0.35,
-      "event_time": "2026-08-03 05:20:01",
-      "model_time": "2026080212z"
-    },
-    "EC": {
-      "quality": 0.311,
-      "level": "小烧到中烧",
-      "aod": 0.419,
-      "event_time": "2026-08-03 05:20:01",
-      "model_time": "2026080112z"
-    }
-  },
-  "today_sunset": {
-    "GFS": {
-      "quality": 0.191,
-      "level": "小烧",
-      "aod": 0.412,
-      "event_time": "2026-08-03 18:50:18",
-      "model_time": "2026080300z"
-    },
-    "EC": {
-      "quality": 0.01,
-      "level": "微微烧",
-      "aod": 0.433,
-      "event_time": "2026-08-03 18:50:18",
-      "model_time": "2026080212z"
-    }
-  },
-  "tomorrow_sunrise": {
     "GFS": {
       "quality": 0.033,
       "level": "微微烧",
@@ -50,7 +18,7 @@
       "model_time": "2026080212z"
     }
   },
-  "tomorrow_sunset": {
+  "today_sunset": {
     "GFS": {
       "quality": 0.041,
       "level": "微微烧",
@@ -67,10 +35,60 @@
       "model_time": null
     }
   },
+  "tomorrow_sunrise": {
+    "GFS": {
+      "quality": 0.533,
+      "level": "中等烧",
+      "aod": 0.483,
+      "event_time": "2026-08-05 05:21:14",
+      "model_time": "2026080300z"
+    },
+    "EC": {
+      "status": "unavailable",
+      "quality": null,
+      "level": null,
+      "aod": null,
+      "event_time": null,
+      "model_time": null
+    }
+  },
+  "tomorrow_sunset": {
+    "GFS": {
+      "status": "unavailable",
+      "quality": null,
+      "level": null,
+      "aod": null,
+      "event_time": null,
+      "model_time": null
+    },
+    "EC": {
+      "status": "unavailable",
+      "quality": null,
+      "level": null,
+      "aod": null,
+      "event_time": null,
+      "model_time": null
+    }
+  },
   "meta": {
-    "successful_selections": 7,
+    "successful_selections": 4,
     "captured_json_responses": 14,
     "failures": [
+      {
+        "key": "today_sunset",
+        "model": "EC",
+        "reason": "响应鲜艳度解析失败 (EC)"
+      },
+      {
+        "key": "tomorrow_sunrise",
+        "model": "EC",
+        "reason": "响应鲜艳度解析失败 (EC)"
+      },
+      {
+        "key": "tomorrow_sunset",
+        "model": "GFS",
+        "reason": "响应鲜艳度解析失败 (GFS)"
+      },
       {
         "key": "tomorrow_sunset",
         "model": "EC",

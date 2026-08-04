@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-04T13:27:17+08:00",
+  "updated_at": "2026-08-04T16:09:15+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
@@ -36,11 +36,11 @@
   },
   "tomorrow_sunrise": {
     "GFS": {
-      "quality": 0.128,
+      "quality": 0.119,
       "level": "小烧",
-      "aod": 0.367,
+      "aod": 0.365,
       "event_time": "2026-08-05 05:21:14",
-      "model_time": "2026080318z"
+      "model_time": "2026080400z"
     },
     "EC": {
       "quality": 0.006,
@@ -52,12 +52,11 @@
   },
   "tomorrow_sunset": {
     "GFS": {
-      "status": "unavailable",
-      "quality": null,
-      "level": null,
-      "aod": null,
-      "event_time": null,
-      "model_time": null
+      "quality": 0.001,
+      "level": "微微烧",
+      "aod": 0.283,
+      "event_time": "2026-08-05 18:48:43",
+      "model_time": "2026080400z"
     },
     "EC": {
       "status": "unavailable",
@@ -69,14 +68,9 @@
     }
   },
   "meta": {
-    "successful_selections": 6,
+    "successful_selections": 7,
     "captured_json_responses": 14,
     "failures": [
-      {
-        "key": "tomorrow_sunset",
-        "model": "GFS",
-        "reason": "响应鲜艳度解析失败 (GFS)"
-      },
       {
         "key": "tomorrow_sunset",
         "model": "EC",

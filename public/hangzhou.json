@@ -1,40 +1,8 @@
 {
-  "updated_at": "2026-08-14T23:11:35+08:00",
+  "updated_at": "2026-08-15T10:03:24+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
-    "GFS": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.646,
-      "event_time": "2026-08-14 05:26:39",
-      "model_time": "2026081312z"
-    },
-    "EC": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.597,
-      "event_time": "2026-08-14 05:26:39",
-      "model_time": "2026081112z"
-    }
-  },
-  "today_sunset": {
-    "GFS": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.978,
-      "event_time": "2026-08-14 18:40:40",
-      "model_time": "2026081400z"
-    },
-    "EC": {
-      "quality": 0.004,
-      "level": "微微烧",
-      "aod": 0.923,
-      "event_time": "2026-08-14 18:40:40",
-      "model_time": "2026081312z"
-    }
-  },
-  "tomorrow_sunrise": {
     "GFS": {
       "quality": 0,
       "level": "不烧",
@@ -51,12 +19,44 @@
       "model_time": null
     }
   },
-  "tomorrow_sunset": {
+  "today_sunset": {
     "GFS": {
       "quality": 0.014,
       "level": "微微烧",
       "aod": 0.56,
       "event_time": "2026-08-15 18:39:42",
+      "model_time": "2026081406z"
+    },
+    "EC": {
+      "quality": 0,
+      "level": "不烧",
+      "aod": 0.424,
+      "event_time": "2026-08-15 18:39:42",
+      "model_time": "2026081412z"
+    }
+  },
+  "tomorrow_sunrise": {
+    "GFS": {
+      "quality": 0,
+      "level": "不烧",
+      "aod": 0.407,
+      "event_time": "2026-08-16 05:27:50",
+      "model_time": "2026081418z"
+    },
+    "EC": {
+      "quality": 0,
+      "level": "不烧",
+      "aod": 0.317,
+      "event_time": "2026-08-16 05:27:50",
+      "model_time": "2026081412z"
+    }
+  },
+  "tomorrow_sunset": {
+    "GFS": {
+      "quality": 0,
+      "level": "不烧",
+      "aod": 0.496,
+      "event_time": "2026-08-16 18:38:42",
       "model_time": "2026081406z"
     },
     "EC": {
@@ -70,10 +70,10 @@
   },
   "meta": {
     "successful_selections": 6,
-    "captured_json_responses": 9,
+    "captured_json_responses": 14,
     "failures": [
       {
-        "key": "tomorrow_sunrise",
+        "key": "today_sunrise",
         "model": "EC",
         "reason": "响应鲜艳度解析失败 (EC)"
       },

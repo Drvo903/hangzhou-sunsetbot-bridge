@@ -1,40 +1,8 @@
 {
-  "updated_at": "2026-08-21T22:58:23+08:00",
+  "updated_at": "2026-08-22T10:04:22+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
-    "GFS": {
-      "quality": 0.029,
-      "level": "微微烧",
-      "aod": 0.166,
-      "event_time": "2026-08-21 05:30:46",
-      "model_time": "2026082006z"
-    },
-    "EC": {
-      "quality": 0.001,
-      "level": "微微烧",
-      "aod": 0.167,
-      "event_time": "2026-08-21 05:30:46",
-      "model_time": "2026081912z"
-    }
-  },
-  "today_sunset": {
-    "GFS": {
-      "quality": 0.271,
-      "level": "小烧到中烧",
-      "aod": 0.232,
-      "event_time": "2026-08-21 18:33:31",
-      "model_time": "2026082100z"
-    },
-    "EC": {
-      "quality": 0.075,
-      "level": "小烧",
-      "aod": 0.218,
-      "event_time": "2026-08-21 18:33:31",
-      "model_time": "2026082012z"
-    }
-  },
-  "tomorrow_sunrise": {
     "GFS": {
       "quality": 0.001,
       "level": "微微烧",
@@ -51,13 +19,47 @@
       "model_time": null
     }
   },
+  "today_sunset": {
+    "GFS": {
+      "quality": 0.141,
+      "level": "小烧",
+      "aod": 0.26,
+      "event_time": "2026-08-22 18:32:26",
+      "model_time": "2026082118z"
+    },
+    "EC": {
+      "status": "unavailable",
+      "quality": null,
+      "level": null,
+      "aod": null,
+      "event_time": null,
+      "model_time": null
+    }
+  },
+  "tomorrow_sunrise": {
+    "GFS": {
+      "quality": 0.296,
+      "level": "小烧到中烧",
+      "aod": 0.212,
+      "event_time": "2026-08-23 05:31:55",
+      "model_time": "2026082118z"
+    },
+    "EC": {
+      "status": "unavailable",
+      "quality": null,
+      "level": null,
+      "aod": null,
+      "event_time": null,
+      "model_time": null
+    }
+  },
   "tomorrow_sunset": {
     "GFS": {
-      "quality": 0.111,
-      "level": "小烧",
-      "aod": 0.259,
-      "event_time": "2026-08-22 18:32:26",
-      "model_time": "2026082106z"
+      "quality": 0.017,
+      "level": "微微烧",
+      "aod": 0.163,
+      "event_time": "2026-08-23 18:31:21",
+      "model_time": "2026082112z"
     },
     "EC": {
       "status": "unavailable",
@@ -69,9 +71,19 @@
     }
   },
   "meta": {
-    "successful_selections": 6,
-    "captured_json_responses": 16,
+    "successful_selections": 4,
+    "captured_json_responses": 9,
     "failures": [
+      {
+        "key": "today_sunrise",
+        "model": "EC",
+        "reason": "响应鲜艳度解析失败 (EC)"
+      },
+      {
+        "key": "today_sunset",
+        "model": "EC",
+        "reason": "响应鲜艳度解析失败 (EC)"
+      },
       {
         "key": "tomorrow_sunrise",
         "model": "EC",

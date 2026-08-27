@@ -1,30 +1,31 @@
 {
-  "updated_at": "2026-08-26T23:55:55+08:00",
+  "updated_at": "2026-08-27T18:30:25+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
     "GFS": {
       "quality": 0,
       "level": "不烧",
-      "aod": 0.179,
-      "event_time": "2026-08-26 05:33:37",
-      "model_time": "2026082512z"
+      "aod": 0.293,
+      "event_time": "2026-08-27 05:34:11",
+      "model_time": "2026082612z"
     },
     "EC": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.233,
-      "event_time": "2026-08-26 05:33:37",
-      "model_time": "2026082412z"
+      "status": "unavailable",
+      "quality": null,
+      "level": null,
+      "aod": null,
+      "event_time": null,
+      "model_time": null
     }
   },
   "today_sunset": {
     "GFS": {
-      "quality": 0.002,
+      "quality": 0.026,
       "level": "微微烧",
-      "aod": 0.378,
-      "event_time": "2026-08-26 18:28:00",
-      "model_time": "2026082600z"
+      "aod": 0.252,
+      "event_time": "2026-08-27 18:26:52",
+      "model_time": "2026082700z"
     },
     "EC": {
       "status": "unavailable",
@@ -39,9 +40,9 @@
     "GFS": {
       "quality": 0,
       "level": "不烧",
-      "aod": 0.35,
-      "event_time": "2026-08-27 05:34:11",
-      "model_time": "2026082606z"
+      "aod": 0.287,
+      "event_time": "2026-08-28 05:34:45",
+      "model_time": "2026082700z"
     },
     "EC": {
       "status": "unavailable",
@@ -54,11 +55,11 @@
   },
   "tomorrow_sunset": {
     "GFS": {
-      "quality": 0.002,
+      "quality": 0.003,
       "level": "微微烧",
-      "aod": 0.262,
-      "event_time": "2026-08-27 18:26:52",
-      "model_time": "2026082606z"
+      "aod": 0.272,
+      "event_time": "2026-08-28 18:25:43",
+      "model_time": "2026082618z"
     },
     "EC": {
       "status": "unavailable",
@@ -70,9 +71,14 @@
     }
   },
   "meta": {
-    "successful_selections": 5,
+    "successful_selections": 4,
     "captured_json_responses": 16,
     "failures": [
+      {
+        "key": "today_sunrise",
+        "model": "EC",
+        "reason": "响应鲜艳度解析失败 (EC)"
+      },
       {
         "key": "today_sunset",
         "model": "EC",

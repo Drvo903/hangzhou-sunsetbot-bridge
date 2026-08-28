@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T06:36:15+08:00",
+  "updated_at": "2026-08-28T22:25:01+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
@@ -21,28 +21,27 @@
   },
   "today_sunset": {
     "GFS": {
-      "quality": 0.06,
+      "quality": 0.074,
       "level": "小烧",
-      "aod": 0.23,
+      "aod": 0.262,
       "event_time": "2026-08-28 18:25:43",
-      "model_time": "2026082706z"
+      "model_time": "2026082718z"
     },
     "EC": {
-      "status": "unavailable",
-      "quality": null,
-      "level": null,
-      "aod": null,
-      "event_time": null,
-      "model_time": null
+      "quality": 0.039,
+      "level": "微微烧",
+      "aod": 0.257,
+      "event_time": "2026-08-28 18:25:43",
+      "model_time": "2026082712z"
     }
   },
   "tomorrow_sunrise": {
     "GFS": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.168,
+      "quality": 0.003,
+      "level": "微微烧",
+      "aod": 0.22,
       "event_time": "2026-08-29 05:35:18",
-      "model_time": "2026082700z"
+      "model_time": "2026082806z"
     },
     "EC": {
       "status": "unavailable",
@@ -55,12 +54,11 @@
   },
   "tomorrow_sunset": {
     "GFS": {
-      "status": "unavailable",
-      "quality": null,
-      "level": null,
-      "aod": null,
-      "event_time": null,
-      "model_time": null
+      "quality": 0,
+      "level": "不烧",
+      "aod": 0.222,
+      "event_time": "2026-08-29 18:24:33",
+      "model_time": "2026082806z"
     },
     "EC": {
       "status": "unavailable",
@@ -72,8 +70,8 @@
     }
   },
   "meta": {
-    "successful_selections": 3,
-    "captured_json_responses": 16,
+    "successful_selections": 5,
+    "captured_json_responses": 9,
     "failures": [
       {
         "key": "today_sunrise",
@@ -81,19 +79,9 @@
         "reason": "响应鲜艳度解析失败 (EC)"
       },
       {
-        "key": "today_sunset",
-        "model": "EC",
-        "reason": "响应鲜艳度解析失败 (EC)"
-      },
-      {
         "key": "tomorrow_sunrise",
         "model": "EC",
         "reason": "响应鲜艳度解析失败 (EC)"
-      },
-      {
-        "key": "tomorrow_sunset",
-        "model": "GFS",
-        "reason": "响应鲜艳度解析失败 (GFS)"
       },
       {
         "key": "tomorrow_sunset",

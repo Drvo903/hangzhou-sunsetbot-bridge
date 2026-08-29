@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T15:21:54+08:00",
+  "updated_at": "2026-08-29T17:08:41+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
@@ -72,7 +72,7 @@
   },
   "meta": {
     "successful_selections": 4,
-    "captured_json_responses": 15,
+    "captured_json_responses": 16,
     "failures": [
       {
         "key": "today_sunrise",

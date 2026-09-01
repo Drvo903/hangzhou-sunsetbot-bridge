@@ -3,6 +3,8 @@ import { mkdir, writeFile, rename } from 'node:fs/promises';
 
 const BASE_URL = process.env.SUNSETBOT_URL || 'https://sunsetbot.top/';
 const OUT = process.env.OUTPUT_FILE || 'public/hangzhou.json';
+const HTML_OUT = process.env.HTML_OUTPUT_FILE || 'public/index.html';
+const TEXT_OUT = process.env.TEXT_OUTPUT_FILE || 'public/hangzhou.txt';
 const TZ = 'Asia/Shanghai';
 
 const eventDefs = [
@@ -22,6 +24,71 @@ function level(q) {
   if (q < 1.5) return '典型大烧';
   if (q < 2.0) return '优质大烧';
   return '世纪大烧';
+}
+
+const eventLabels = {
+  today_sunrise: '今日日出',
+  today_sunset: '今日日落',
+  tomorrow_sunrise: '明日日出',
+  tomorrow_sunset: '明日日落',
+};
+
+function formatModel(model) {
+  if (!model || model.status === 'unavailable' || model.quality == null) return '不可用';
+  return `鲜艳度 ${model.quality}；等级 ${model.level ?? '未知'}；AOD ${model.aod ?? '未知'}；事件时间 ${model.event_time ?? '未知'}；模型时次 ${model.model_time ?? '未知'}`;
+}
+
+function renderText(output) {
+  const lines = [
+    '杭州朝霞晚霞预测',
+    `数据更新时间：${output.updated_at}`,
+    `城市：${output.city}`,
+    '',
+  ];
+  for (const [key] of eventDefs) {
+    const item = output[key] ?? {};
+    lines.push(eventLabels[key]);
+    lines.push(`GFS：${formatModel(item.GFS)}`);
+    lines.push(`EC：${formatModel(item.EC)}`);
+    lines.push('');
+  }
+  lines.push(`原始来源：${output.source}`);
+  return lines.join('\n') + '\n';
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function renderHtml(output) {
+  const body = escapeHtml(renderText(output));
+  return `<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>杭州朝霞晚霞预测</title>
+  <style>
+    body { max-width: 860px; margin: 32px auto; padding: 0 20px; color: #1f2937; font: 16px/1.7 system-ui, sans-serif; }
+    h1 { font-size: 28px; }
+    pre { white-space: pre-wrap; word-break: break-word; padding: 20px; background: #f6f8fa; border-radius: 12px; }
+    .links { margin-top: 18px; }
+  </style>
+</head>
+<body>
+  <h1>杭州朝霞晚霞预测</h1>
+  <p>这是供普通浏览器与 ChatGPT 网页读取通道使用的静态正文页。</p>
+  <pre>${body}</pre>
+  <p class="links"><a href="hangzhou.txt">纯文本</a> · <a href="hangzhou.json">原始 JSON</a></p>
+</body>
+</html>
+`;
 }
 
 async function chooseHangzhou(page) {
@@ -106,6 +173,10 @@ async function main() {
     await mkdir(OUT.substring(0, OUT.lastIndexOf('/')), { recursive: true });
     await writeFile(`${OUT}.tmp`, JSON.stringify(output, null, 2) + '\n');
     await rename(`${OUT}.tmp`, OUT);
+    await writeFile(`${TEXT_OUT}.tmp`, renderText(output));
+    await rename(`${TEXT_OUT}.tmp`, TEXT_OUT);
+    await writeFile(`${HTML_OUT}.tmp`, renderHtml(output));
+    await rename(`${HTML_OUT}.tmp`, HTML_OUT);
   } catch (error) {
     await mkdir('debug', { recursive: true });
     await page.screenshot({ path: 'debug/failure.png', fullPage: true }).catch(() => {});

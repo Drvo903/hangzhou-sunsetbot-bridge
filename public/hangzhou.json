@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-02T01:52:57+08:00",
+  "updated_at": "2026-09-02T13:04:07+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
@@ -23,26 +23,25 @@
     "GFS": {
       "quality": 0,
       "level": "不烧",
-      "aod": 0.154,
+      "aod": 0.174,
       "event_time": "2026-09-02 18:19:50",
-      "model_time": "2026090112z"
+      "model_time": "2026090200z"
     },
     "EC": {
-      "status": "unavailable",
-      "quality": null,
-      "level": null,
-      "aod": null,
-      "event_time": null,
-      "model_time": null
+      "quality": 0,
+      "level": "不烧",
+      "aod": 0.165,
+      "event_time": "2026-09-02 18:19:50",
+      "model_time": "2026090112z"
     }
   },
   "tomorrow_sunrise": {
     "GFS": {
-      "quality": 0.575,
+      "quality": 0.47,
       "level": "中等烧",
-      "aod": 0.188,
+      "aod": 0.206,
       "event_time": "2026-09-03 05:38:04",
-      "model_time": "2026090100z"
+      "model_time": "2026090118z"
     },
     "EC": {
       "status": "unavailable",
@@ -55,12 +54,11 @@
   },
   "tomorrow_sunset": {
     "GFS": {
-      "status": "unavailable",
-      "quality": null,
-      "level": null,
-      "aod": null,
-      "event_time": null,
-      "model_time": null
+      "quality": 0.193,
+      "level": "小烧",
+      "aod": 0.304,
+      "event_time": "2026-09-03 18:18:38",
+      "model_time": "2026090118z"
     },
     "EC": {
       "status": "unavailable",
@@ -72,7 +70,7 @@
     }
   },
   "meta": {
-    "successful_selections": 3,
+    "successful_selections": 5,
     "captured_json_responses": 9,
     "failures": [
       {
@@ -81,19 +79,9 @@
         "reason": "响应鲜艳度解析失败 (EC)"
       },
       {
-        "key": "today_sunset",
-        "model": "EC",
-        "reason": "响应鲜艳度解析失败 (EC)"
-      },
-      {
         "key": "tomorrow_sunrise",
         "model": "EC",
         "reason": "响应鲜艳度解析失败 (EC)"
-      },
-      {
-        "key": "tomorrow_sunset",
-        "model": "GFS",
-        "reason": "响应鲜艳度解析失败 (GFS)"
       },
       {
         "key": "tomorrow_sunset",

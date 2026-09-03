@@ -60,3 +60,10 @@ jobs:
           git add public/hangzhou.json public/hangzhou.txt public/index.html
           git commit -m "data: refresh Hangzhou forecast"
           git push
+      - name: Purge jsDelivr cache
+        if: success()
+        run: |
+          for file in public/hangzhou.txt public/index.html public/hangzhou.json; do
+            curl --fail --silent --show-error --retry 3 --max-time 30 \
+              "https://purge.jsdelivr.net/gh/Drvo903/hangzhou-sunsetbot-bridge@main/$file" || true
+          done

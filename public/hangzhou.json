@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-09-18T18:03:42+08:00",
+  "updated_at": "2026-09-19T00:43:42+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
     "GFS": {
-      "quality": 0.006,
-      "level": "微微烧",
-      "aod": 0.398,
-      "event_time": "2026-09-18 05:46:17",
-      "model_time": "2026091712z"
+      "quality": 0,
+      "level": "不烧",
+      "aod": 0.48,
+      "event_time": "2026-09-19 05:46:50",
+      "model_time": "2026091806z"
     },
     "EC": {
       "status": "unavailable",
@@ -21,11 +21,11 @@
   },
   "today_sunset": {
     "GFS": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.399,
-      "event_time": "2026-09-18 18:00:02",
-      "model_time": "2026091800z"
+      "quality": 0.009,
+      "level": "微微烧",
+      "aod": 0.357,
+      "event_time": "2026-09-19 17:58:46",
+      "model_time": "2026091806z"
     },
     "EC": {
       "status": "unavailable",
@@ -40,8 +40,8 @@
     "GFS": {
       "quality": 0,
       "level": "不烧",
-      "aod": 0.48,
-      "event_time": "2026-09-19 05:46:50",
+      "aod": 0.408,
+      "event_time": "2026-09-20 05:47:23",
       "model_time": "2026091800z"
     },
     "EC": {
@@ -55,11 +55,12 @@
   },
   "tomorrow_sunset": {
     "GFS": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.4,
-      "event_time": "2026-09-19 17:58:46",
-      "model_time": "2026091706z"
+      "status": "unavailable",
+      "quality": null,
+      "level": null,
+      "aod": null,
+      "event_time": null,
+      "model_time": null
     },
     "EC": {
       "status": "unavailable",
@@ -71,7 +72,7 @@
     }
   },
   "meta": {
-    "successful_selections": 4,
+    "successful_selections": 3,
     "captured_json_responses": 11,
     "failures": [
       {
@@ -88,6 +89,11 @@
         "key": "tomorrow_sunrise",
         "model": "EC",
         "reason": "响应鲜艳度解析失败 (EC)"
+      },
+      {
+        "key": "tomorrow_sunset",
+        "model": "GFS",
+        "reason": "响应鲜艳度解析失败 (GFS)"
       },
       {
         "key": "tomorrow_sunset",

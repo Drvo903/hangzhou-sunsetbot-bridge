@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-30T16:41:23+08:00",
+  "updated_at": "2026-09-30T23:01:11+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
@@ -38,11 +38,12 @@
   },
   "tomorrow_sunrise": {
     "GFS": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.301,
-      "event_time": "2026-10-01 05:53:34",
-      "model_time": "2026092918z"
+      "status": "unavailable",
+      "quality": null,
+      "level": null,
+      "aod": null,
+      "event_time": null,
+      "model_time": null
     },
     "EC": {
       "status": "unavailable",
@@ -72,8 +73,8 @@
     }
   },
   "meta": {
-    "successful_selections": 3,
-    "captured_json_responses": 9,
+    "successful_selections": 2,
+    "captured_json_responses": 12,
     "failures": [
       {
         "key": "today_sunrise",
@@ -87,18 +88,23 @@
       },
       {
         "key": "tomorrow_sunrise",
+        "model": "GFS",
+        "reason": "SunsetBot 查询失败：HTTP 524"
+      },
+      {
+        "key": "tomorrow_sunrise",
         "model": "EC",
-        "reason": "响应鲜艳度解析失败 (EC)"
+        "reason": "SunsetBot 查询失败：HTTP 525"
       },
       {
         "key": "tomorrow_sunset",
         "model": "GFS",
-        "reason": "响应鲜艳度解析失败 (GFS)"
+        "reason": "SunsetBot 查询失败：HTTP 525"
       },
       {
         "key": "tomorrow_sunset",
         "model": "EC",
-        "reason": "响应鲜艳度解析失败 (EC)"
+        "reason": "SunsetBot 查询失败：HTTP 525"
       }
     ]
   }

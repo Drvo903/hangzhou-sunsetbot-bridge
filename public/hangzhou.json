@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-09-30T23:01:11+08:00",
+  "updated_at": "2026-10-01T02:12:52+08:00",
   "city": "杭州",
   "source": "https://sunsetbot.top/",
   "today_sunrise": {
     "GFS": {
       "quality": 0,
       "level": "不烧",
-      "aod": 0.735,
-      "event_time": "2026-09-30 05:52:59",
-      "model_time": "2026092818z"
+      "aod": 0.301,
+      "event_time": "2026-10-01 05:53:34",
+      "model_time": "2026092918z"
     },
     "EC": {
       "status": "unavailable",
@@ -21,11 +21,12 @@
   },
   "today_sunset": {
     "GFS": {
-      "quality": 0,
-      "level": "不烧",
-      "aod": 0.54,
-      "event_time": "2026-09-30 17:44:59",
-      "model_time": "2026092918z"
+      "status": "unavailable",
+      "quality": null,
+      "level": null,
+      "aod": null,
+      "event_time": null,
+      "model_time": null
     },
     "EC": {
       "status": "unavailable",
@@ -73,13 +74,18 @@
     }
   },
   "meta": {
-    "successful_selections": 2,
-    "captured_json_responses": 12,
+    "successful_selections": 1,
+    "captured_json_responses": 10,
     "failures": [
       {
         "key": "today_sunrise",
         "model": "EC",
         "reason": "响应鲜艳度解析失败 (EC)"
+      },
+      {
+        "key": "today_sunset",
+        "model": "GFS",
+        "reason": "响应鲜艳度解析失败 (GFS)"
       },
       {
         "key": "today_sunset",
@@ -89,22 +95,22 @@
       {
         "key": "tomorrow_sunrise",
         "model": "GFS",
-        "reason": "SunsetBot 查询失败：HTTP 524"
+        "reason": "响应鲜艳度解析失败 (GFS)"
       },
       {
         "key": "tomorrow_sunrise",
         "model": "EC",
-        "reason": "SunsetBot 查询失败：HTTP 525"
+        "reason": "响应鲜艳度解析失败 (EC)"
       },
       {
         "key": "tomorrow_sunset",
         "model": "GFS",
-        "reason": "SunsetBot 查询失败：HTTP 525"
+        "reason": "响应鲜艳度解析失败 (GFS)"
       },
       {
         "key": "tomorrow_sunset",
         "model": "EC",
-        "reason": "SunsetBot 查询失败：HTTP 525"
+        "reason": "响应鲜艳度解析失败 (EC)"
       }
     ]
   }
